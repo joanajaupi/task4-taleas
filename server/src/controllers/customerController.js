@@ -25,8 +25,8 @@ module.exports.getCustomerById = async(req, res) =>{
 }
 
 module.exports.createCustomer = async(req, res) =>{
-
     try{
+        res.header('Access-Control-Allow-Origin', '*');
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.status(422).json({errors: errors.array()});

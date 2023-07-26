@@ -22,16 +22,37 @@ function Categories(){
     console.log();
 
     return (
-        <div>
-            <h1>Categories</h1>
-            <ul>
+        //a table to display the categories
+        // an autoincrement number placed instead of the id and the name of the category
+
+        <div className="table-container">
+        <table className="table table-striped">
+            <thead>
+                <tr>
+                 
+                    <th>Category Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                
                 {categories.map((category) => (
-                    <li key={category._id}>
-                        {category.categoryName}
-                    </li>
+                    // and 3 buttons view products, edit and delete
+                    <tr key={category.categoryName}>
+                        <td>{category.categoryName}</td>
+                        <td>
+                            <button className="btn btn-primary action">View Products</button>
+                            <button className="btn btn-primary action">Edit</button>
+                            <button className="btn btn-danger action">Delete</button>
+                        </td>
+
+                    </tr>
                 ))}
-            </ul>
+            </tbody>
+        </table>
         </div>
+
     );
 }
 

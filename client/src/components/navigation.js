@@ -1,23 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+
 export const Navigation = (props) => {
     return (
         <nav id="menu" className="navbar navbar-default navbar-fixed-top">
             <div className="container">
                 <div className="navbar-header">
-                    <button
-                        className="navbar-toggle collapsed"
-                        data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1"
-                    >
-                        {' '}
-                        <span className="sr-only">Toggle navigation</span>{' '}
-                        <span className="icon-bar"></span>{' '}
-                        <span className="icon-bar"></span>{' '}
-                        <span className="icon-bar"></span>{' '}
-                    </button>
-                    <a href="#page-top" className="navbar-brand page-scroll">
-                        TechZone
-                    </a>{' '}
+                <Link to="/" className="navbar-brand page-scroll"> Meliora </Link>
                 </div>
 
                 <div
@@ -26,39 +15,31 @@ export const Navigation = (props) => {
                 >
                     <ul className="nav navbar-nav navbar-right">
                     <li>
-              <a href="#features" className="page-scroll">
+              <a href="#features">
                 Features
               </a>
             </li>
             <li>
-              <a href="#about" className="page-scroll">
+              <a href="#about">
                 About
               </a>
             </li>
             <li>
-              <a href="#services" className="page-scroll">
-                Services
-              </a>
+              <Link to="/Services">Services</Link>
             </li>
             <li>
-              <a href="#portfolio" className="page-scroll">
+              <a href="#portfolio">
                 Gallery
               </a>
             </li>
+            
             <li>
-              <a href="#testimonials" className="page-scroll">
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a href="#team" className="page-scroll">
+              <a href="#team">
                 Team
               </a>
             </li>
             <li>
-              <a href="#contact" className="page-scroll">
-                Contact
-              </a>
+            <Link to="/signup">Signup</Link>
             </li>
           </ul>
         </div>
