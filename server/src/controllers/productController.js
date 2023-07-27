@@ -5,7 +5,7 @@ const { body, validationResult} = require('express-validator');
 const mongoose = require('mongoose');
 module.exports.getAllProducts = async (req, res) => {
     try {
-        const products = await Product.find();
+        const products = await Product.find().populate('productCategory', 'categoryName');
         res.json(products);
     } catch (err) {
         res.status(500).json({ message: 'Internal server error' });
@@ -25,17 +25,6 @@ module.exports.getOneProduct = async(req, res) => {
 }
 module.exports.createProduct = async(req,res) =>{
     try{
-        //validate the request body first
-        const errors = validationResult(req);
-        if(!errors.isEmpty()){
-            return res.status(422).json({errors: errors.array()});
-        }
-        //check if the category exists first
-        const category = await Category.findById(req.body.productCategory);
-        if(!category){
-            return res.status(404).json({message: "Category not found"});
-        }
-        //create the product
         const product = new Product({
             productName: req.body.productName,
             productDescription: req.body.productDescription,
@@ -43,13 +32,16 @@ module.exports.createProduct = async(req,res) =>{
             productCategory: req.body.productCategory
         });
         const newProduct = await product.save();
+        const createdProduct = await Category.findOneAndUpdate(
+            {_id: req.body.productCategory},
+            {$push: {products: newProduct._id}},
+            {new: true}
+        )
         res.status(200).json(newProduct);
     }catch(err){
-        res.status(500).json({message:"Internal server error"});
-        console.log(err);
+        res.status(400).json(err);
     }
 }
-
 module.exports.deleteProduct = async(req, res) => {
     try{
         const productId = req.params.id;

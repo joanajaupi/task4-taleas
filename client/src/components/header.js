@@ -1,6 +1,9 @@
 import React from "react";
+import {Routes, Route, useNavigate} from 'react-router-dom';
 
 export const Header = (props) => {
+  
+  const navigate = useNavigate();
   return (
     <header id="header">
       <div className="intro">
@@ -10,15 +13,9 @@ export const Header = (props) => {
               <div className="col-md-8 col-md-offset-2 intro-text">
                 <h1>
                   {props.data ? props.data.title : "Meliora"}
-                  <span></span>
                 </h1>
                 <p>Discover more</p>
-                <a
-                  href="#features"
-                  className="btn btn-custom btn-lg page-scroll"
-                >
-                  Learn More
-                </a>{" "}
+                <button type="button" class="btn btn-primary" onClick = {()=> navigate('/products/')}>Discover</button>
               </div>
             </div>
           </div>

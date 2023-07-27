@@ -8,7 +8,7 @@ export const Signup = () => {
     customerName: '',
     customerEmail: '',
     customerPhone: '',
-    customerPassword: ''
+    customerPassword: '',
   });
 
   const handleChange = (e) => {
@@ -33,12 +33,22 @@ export const Signup = () => {
     } catch (error) {
       // Handle signup errors (you may show an error message)
       console.error('Signup failed:', error.message);
+      //pop up error message
+      alert('Signup failed:', error.message);
+      //clear the form
+      setFormData({
+        customerName: '',
+        customerEmail: '',
+        customerPhone: '',
+        customerPassword: ''
+      });
     }
   };
 
   return (
     <div className="signup-container">
       <form className="signup-form" onSubmit={handleSubmit}>
+        <h3>Sign Up</h3>
         <label htmlFor="customerName">Full Name:</label>
         <input type="text" id="customerName" name="customerName" value={formData.customerName} onChange={handleChange} />
 
@@ -57,10 +67,8 @@ export const Signup = () => {
           onChange={handleChange}
         />
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" id="signup-btn">Sign Up</button>
       </form>
     </div>
   );
 };
-
-

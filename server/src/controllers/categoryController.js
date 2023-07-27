@@ -7,7 +7,7 @@ const { body, validationResult} = require('express-validator');
 module.exports.getAllCategories = async(req, res) =>{
     res.header('Access-Control-Allow-Origin', '*');
     try{
-        const categories = await Category.find().populate('products',['productName', 'productPrice']).exec();
+        const categories = await Category.find().populate('products').exec();
         res.json(categories);
     }catch(err){
         res.status(500).json({message:"internal server error"});
@@ -73,6 +73,7 @@ module.exports.updateCategory = async(req,res) =>{
 
 module.exports.deleteCategory = async(req,res) =>{
     try{
+        res.header('Access-Control-Allow-Origin', '*');
         if(!mongoose.Types.ObjectId.isValid(req.params.id)){
             res.status(400).json({message: "Invalid category id"});
             return;

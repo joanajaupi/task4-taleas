@@ -8,40 +8,15 @@ export const Navigation = (props) => {
                 <div className="navbar-header">
                 <Link to="/" className="navbar-brand page-scroll"> Meliora </Link>
                 </div>
-
-                <div
-                    className="collapse navbar-collapse"
-                    id="bs-example-navbar-collapse-1"
-                >
+                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul className="nav navbar-nav navbar-right">
-                    <li>
-              <a href="#features">
-                Features
-              </a>
-            </li>
-            <li>
-              <a href="#about">
-                About
-              </a>
-            </li>
-            <li>
-              <Link to="/Services">Services</Link>
-            </li>
-            <li>
-              <a href="#portfolio">
-                Gallery
-              </a>
-            </li>
-            
-            <li>
-              <a href="#team">
-                Team
-              </a>
-            </li>
-            <li>
-            <Link to="/signup">Signup</Link>
-            </li>
-          </ul>
+                    <li><Link to="/products">Products</Link></li>
+                    <li><a href="#about">About</a></li>
+                    <li><Link to="/Services">Services</Link></li>
+                    <li><Link to="/Categories">Categories</Link></li>
+                    <li><a href="#portfolio">Gallery</a></li>
+                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/signup">Signup</Link></li></ul>
         </div>
       </div>
     </nav>

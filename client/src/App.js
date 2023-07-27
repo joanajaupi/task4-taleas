@@ -1,6 +1,5 @@
 import './App.css';
 import React, {useState}from "react";
-import Categories from './components/categories';
 import JsonData from "./data/data.json";
 import { Navigation } from "./components/navigation";
 import {
@@ -10,9 +9,13 @@ import {
   useRoutes,
   BrowserRouter,
 } from "react-router-dom";
+import {OneCategory} from "./components/oneCategory";
 import { Services } from "./components/services";
 import { Header } from "./components/header";
-import { Signup } from "./components/signup";
+import { Signup } from "./components/User/signup";
+import { Login } from "./components/User/login";
+import {Categories} from "./components/categories";
+import {AllProducts} from "./components/Products/allProducts";
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
   React.useEffect(() => {
@@ -23,10 +26,13 @@ const App = () => {
     <div>
       <Navigation />
       <Routes>
-        <Route path="/" element={<Header data={landingPageData.Header} />} />
+        <Route path="/" element={<Header/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/categories" element={<Categories />} />
-        <Route path="/services" element={<Services data={landingPageData.Services}/>} />
+        <Route path="/services" element={<Services/>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/products" element={<AllProducts/>} />
+        <Route path="/viewCategory/:id" element={<OneCategory/>} />
       </Routes>      
     </div>
   );
