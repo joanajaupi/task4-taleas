@@ -232,14 +232,34 @@ header .intro-text {
   font-weight: 600;
   font-size: 12px;
   padding: 5px 10px;
-  margin-left: 10px;	
+	
 }
 #products-table{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
+  margin-top: 100px;
 }
 #category-action-button{
   margin-left: 10px;
 }
+/*center it*/
+#edit-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 20px;
+  display: block;
+  max-width: 500px;
+  margin: 0 auto;
+
+}
+
+#edit-form {
+  display: block;
+  margin: 0 auto;
+}
+#edit-category {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+

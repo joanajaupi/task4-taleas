@@ -25,6 +25,12 @@ module.exports.getOneProduct = async(req, res) => {
 }
 module.exports.createProduct = async(req,res) =>{
     try{
+        //check if category exists if it does not return 404
+        const category = await Category.findById(req.body.productCategory);
+        if(!category){
+            res.status(404).json({message: "Category not found"});
+            return;
+        }
         const product = new Product({
             productName: req.body.productName,
             productDescription: req.body.productDescription,
@@ -90,7 +96,7 @@ module.exports.updateProduct = async(req, res) => {
 }
 module.exports.validate = () => {
     return [ 
-        body('productName', 'Product name is required and must be alphabetic').exists().isAlpha(),
+        body('productName', 'Product name is required and must be alphabetic').exists(),
         body('productDescription', 'Product description is required').exists(),
         body('productPrice', 'Product price is required').exists().isNumeric(),
         body('productCategory', 'Product category is required').exists(),

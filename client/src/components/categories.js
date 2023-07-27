@@ -70,7 +70,7 @@ export const Categories = () => {
                         <td>{category.categoryName}</td>
                         <td>
                             <Link id = "category-action-button" className="btn btn-primary" to={`/viewCategory/${category._id}`}>View Products</Link>
-                            <Link id = "category-action-button" className="btn btn-primary">Edit</Link>
+                            <Link id = "category-action-button" className="btn btn-primary" to={`/editCategory/${category._id}`}>Edit</Link>
                             <button id = "category-action-button"
                             className="btn btn-danger"
                             onClick={() => handleDeleteCategory(category._id)}>

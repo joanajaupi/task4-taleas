@@ -16,6 +16,7 @@ import { Signup } from "./components/User/signup";
 import { Login } from "./components/User/login";
 import {Categories} from "./components/categories";
 import {AllProducts} from "./components/Products/allProducts";
+import {EditCategory} from "./components/editCategory";
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
   React.useEffect(() => {
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<AllProducts/>} />
         <Route path="/viewCategory/:id" element={<OneCategory/>} />
+        <Route path="/editCategory/:id" element={<EditCategory/>} />
       </Routes>      
     </div>
   );

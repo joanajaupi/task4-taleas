@@ -51,6 +51,7 @@ module.exports.createCategory = async(req, res) =>{
 
 module.exports.updateCategory = async(req,res) =>{
     try{
+        res.header('Access-Control-Allow-Origin', '*');
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.status(422).json({errors: errors.array()});

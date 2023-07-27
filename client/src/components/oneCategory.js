@@ -27,7 +27,7 @@ export const OneCategory = () => {
     if(error) return <p>Something went wrong: {error.response}</p>;
     return (
         <div class="container">
-        <Link to="/categories" className="btn btn-primary">Back to Categories</Link>
+        
         <div  id="products-table">
             <h3>Category {category.categoryName}</h3>
             <table className="table table-striped">
@@ -48,6 +48,7 @@ export const OneCategory = () => {
                     ))}
                 </tbody>
             </table>
+            <Link to="/categories" className="btn btn-primary">Go Back</Link>
         </div>
     </div>
     )
